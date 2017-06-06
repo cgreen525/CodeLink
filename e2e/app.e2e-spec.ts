@@ -1,14 +1,16 @@
-import { FirebaseCrudPage } from './app.po';
+import { CodeLinkPage } from './app.po';
 
-describe('firebase-crud App', function() {
-  let page: FirebaseCrudPage;
+describe('code-link App', () => {
+  let page: CodeLinkPage;
 
   beforeEach(() => {
-    page = new FirebaseCrudPage();
+    page = new CodeLinkPage();
   });
 
-  it('should display message saying app works', () => {
+  it('should display welcome message', done => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('app works!');
+    page.getParagraphText()
+      .then(msg => expect(msg).toEqual('Welcome to app!!'))
+      .then(done, done.fail);
   });
 });

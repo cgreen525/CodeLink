@@ -1,44 +1,55 @@
+import { Routes, RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AngularFireModule } from 'angularfire2';
-import { RouterModule, Routes} from "@angular/router";
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireAuth, AngularFireAuthModule } from 'angularfire2/auth';
+import { MaterialModule } from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+
+import { AuthProvider } from './auth.provider';
 import { AppComponent } from './app.component';
-import { AF } from "../providers/af";
-import { LoginPageComponent } from './login-page/login-page.component';
-import { HomePageComponent } from './home-page/home-page.component';
-import { RegistrationComponent } from './registration/registration.component';
+import { LoginComponent } from './login/login.component';
+import { SignupComponent } from './signup/signup.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 export const firebaseConfig = {
-  apiKey: "AIzaSyDutfIndhJXIOumqovgQAoRErWZJRbwaLo",
-  authDomain: "codelink-c381a.firebaseapp.com",
-  databaseURL: "https://codelink-c381a.firebaseio.com",
-  storageBucket: "codelink-c381a.appspot.com",
-  messagingSenderId: "779242369000"
+  apiKey: 'AIzaSyB87Q12Gq8b-0WZ_hSI7n6fqGxPYt7aUAg',
+  authDomain: 'codelink-46eb1.firebaseapp.com',
+  databaseURL: 'https://codelink-46eb1.firebaseio.com',
+  storageBucket: 'codelink-46eb1.appspot.com',
+  messagingSenderId: '131072539325'
 };
 
-const routes: Routes = [
-  { path: '', component: HomePageComponent },
-  { path: 'login', component: LoginPageComponent },
-  { path: 'register', component: RegistrationComponent}
+export const routes: Routes = [
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: 'login', component: LoginComponent },
+  { path: 'signup', component: SignupComponent },
+  { path: 'dashboard', component: DashboardComponent }
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginPageComponent,
-    HomePageComponent,
-    RegistrationComponent
+    LoginComponent,
+    SignupComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
-    AngularFireModule.initializeApp(firebaseConfig),
-    RouterModule.forRoot(routes),
     FormsModule,
-    HttpModule
+    HttpModule,
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule,
+    MaterialModule,
+    BrowserAnimationsModule,
+    RouterModule.forRoot(routes)
   ],
-  providers: [AF],
+  providers: [AuthProvider],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }
