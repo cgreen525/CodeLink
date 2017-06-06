@@ -1,0 +1,27 @@
+
+md-card-content {
+    margin-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+md-card-actions {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.reg-text {
+    font-weight: normal;
+}
+
+.thin-text {
+    font-weight: thin;
+}
+
+.font-20 {
+    font-size: 20px;
+}

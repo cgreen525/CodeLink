@@ -1,43 +1,47 @@
+import { AuthProvider } from './auth.provider';
+import { Router } from '@angular/router';
 import { Component } from '@angular/core';
-import { AF } from "../providers/af";
-import { Router } from "@angular/router";
+import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+import { AngularFireAuth } from 'angularfire2/auth';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
 export class AppComponent {
   public isLoggedIn: boolean;
-  constructor(public afService: AF, private router: Router) {
-    // This asynchronously checks if our user is logged it and will automatically
-    // redirect them to the Login page when the status changes.
-    // This is just a small thing that Firebase does that makes it easy to use.
-    this.afService.af.auth.subscribe(
+  constructor(public authService: AuthProvider, private router: Router) {
+    this.authService.af.authState.subscribe(
       (auth) => {
-        if(auth == null) {
-          console.log("Not Logged in.");
+        if (auth == null) {
+          console.log('Failed Log in.');
           this.isLoggedIn = false;
           this.router.navigate(['login']);
         }
+        // tslint:disable-next-line:one-line
         else {
-          console.log("Successfully Logged in.");
+          console.log('Successfull log in.');
           // Set the Display Name and Email so we can attribute messages to them
-          if(auth.google) {
-            this.afService.displayName = auth.google.displayName;
-            this.afService.email = auth.google.email;
+          if (auth.displayName) {
+            this.authService.displayName = auth.displayName;
+            this.authService.email = auth.email;
           }
+          // tslint:disable-next-line:one-line
           else {
-            this.afService.displayName = auth.auth.email;
-            this.afService.email = auth.auth.email;
+            this.authService.displayName = auth.email;
+            this.authService.email = auth.email;
           }
           this.isLoggedIn = true;
-          this.router.navigate(['']);
+          this.router.navigate(['dashboard']);
         }
       }
     );
   }
   logout() {
-    this.afService.logout();
+    this.authService.logout().then(function(){
+      this.router.navigate('login');
+    });
   }
 }
