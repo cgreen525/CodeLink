@@ -1,0 +1,20 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/prebuilt-themes/purple-green.css';
+@import '~https://fonts.googleapis.com/icon?family=Material+Icons';
+
+body {
+  margin:0;
+  font-family: Roboto, sans-serif;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.reg-text {
+    font-weight: normal;
+}
+
+.font-20 {
+    font-size: 20px;
+}
