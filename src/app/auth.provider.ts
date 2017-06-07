@@ -19,36 +19,18 @@ export class AuthProvider {
       });
   }
 
-  /**
-   * Logs in the user
-   * @returns {firebase.Promise<FirebaseAuthState>}
-   */
   loginWithGoogle() {
     return this.af.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
   }
 
-    /**
-   * Logs the user in using their Email/Password combo
-   * @param email
-   * @param password
-   * @returns {firebase.Promise<FirebaseAuthState>}
-   */
   loginWithEmail(email, password) {
       return this.af.auth.signInWithEmailAndPassword(email, password);
   }
 
-  /**
-   *
-   * @param model
-   * @returns {firebase.Promise<void>}
-   */
   registerUser(email, password) {
     return this.af.auth.createUserWithEmailAndPassword(email, password);
   }
 
-  /**
-   * Logs out the current user
-   */
   logout() {
     return this.af.auth.signOut();
   }

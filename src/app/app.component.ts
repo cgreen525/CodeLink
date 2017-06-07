@@ -12,7 +12,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
 
 export class AppComponent {
   public isLoggedIn: boolean;
-  constructor(public authService: AuthProvider, private router: Router) {
+  constructor(public authService: AuthProvider, public router: Router) {
     this.authService.af.authState.subscribe(
       (auth) => {
         if (auth == null) {
@@ -40,8 +40,6 @@ export class AppComponent {
     );
   }
   logout() {
-    this.authService.logout().then(function(){
-      this.router.navigate('login');
-    });
+    this.authService.logout();
   }
 }
