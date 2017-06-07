@@ -25,3 +25,13 @@ md-card-actions {
 .font-20 {
     font-size: 20px;
 }
+
+.fb-blue {
+    color: white;
+    background-color: #3b5998;
+}
+
+.google-yellow {
+    color: white;
+    background-color: #ffa700;
+}
