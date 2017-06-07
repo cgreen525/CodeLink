@@ -12,7 +12,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { AuthProvider } from './auth.provider';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
-import { SignupComponent } from './signup/signup.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 
 export const firebaseConfig = {
@@ -24,9 +23,8 @@ export const firebaseConfig = {
 };
 
 export const routes: Routes = [
-  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: '', pathMatch: 'full', component: AppComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'signup', component: SignupComponent },
   { path: 'dashboard', component: DashboardComponent }
 ];
 
@@ -34,7 +32,6 @@ export const routes: Routes = [
   declarations: [
     AppComponent,
     LoginComponent,
-    SignupComponent,
     DashboardComponent
   ],
   imports: [
