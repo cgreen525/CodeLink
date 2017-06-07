@@ -16,13 +16,13 @@ export class AppComponent {
     this.authService.af.authState.subscribe(
       (auth) => {
         if (auth == null) {
-          console.log('No user found. Redirecting to login...');
+          console.log('No user signed in');
           this.isLoggedIn = false;
           this.router.navigate(['login']);
         }
         // tslint:disable-next-line:one-line
         else {
-          console.log(auth.displayName + ' signed in. Redirectiong to dashboard...');
+          console.log(auth.displayName + ' signed in');
           // Set the Display Name and Email so we can attribute messages to them
           if (auth.displayName) {
             this.authService.displayName = auth.displayName;
