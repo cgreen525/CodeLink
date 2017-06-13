@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { Component } from '@angular/core';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
+import { MdDialog } from '@angular/material';
+import { PostComponent } from './postDialog/postDialog.component';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +14,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
 
 export class AppComponent {
   public isLoggedIn: boolean;
-  constructor(public authService: AuthProvider, public router: Router) {
+  constructor(public authService: AuthProvider, public router: Router, public dialog: MdDialog) {
     this.authService.af.authState.subscribe(
       (auth) => {
         if (auth == null) {
@@ -41,5 +43,9 @@ export class AppComponent {
   }
   logout() {
     this.authService.logout();
+  }
+
+  openDialog() {
+    this.dialog.open(PostComponent);
   }
 }

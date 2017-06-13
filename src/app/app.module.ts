@@ -13,6 +13,7 @@ import { AuthProvider } from './auth.provider';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { PostComponent } from './postDialog/postDialog.component';
 
 export const firebaseConfig = {
   apiKey: 'AIzaSyB87Q12Gq8b-0WZ_hSI7n6fqGxPYt7aUAg',
@@ -32,7 +33,8 @@ export const routes: Routes = [
   declarations: [
     AppComponent,
     LoginComponent,
-    DashboardComponent
+    DashboardComponent,
+    PostComponent
   ],
   imports: [
     BrowserModule,

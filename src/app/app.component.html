@@ -1,6 +1,10 @@
 <!--The whole content below can be removed with the new code.-->
 <md-toolbar color="primary">
   <a md-button [routerLink]="dashboard" class="font-20">CodeLink</a>
+  <button md-button class="reg-text font-18" (click)="openDialog()">
+    <md-icon>add</md-icon>
+    <span>New Post</span>
+  </button>
   <span class="fill-space"></span>
   <button *ngIf="isLoggedIn" md-button [mdMenuTriggerFor]="menu" class="reg-text font-20">
     <span [innerText]="authService.displayName"></span>
