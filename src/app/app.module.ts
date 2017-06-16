@@ -48,7 +48,8 @@ export const routes: Routes = [
     RouterModule.forRoot(routes)
   ],
   providers: [AuthProvider],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [PostComponent]
 })
 
 export class AppModule { }
