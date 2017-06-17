@@ -1,0 +1,27 @@
+"Schools": {
+  "Texas Tech": {
+    "Listings": [{
+      "Id": "",
+      "CreatorName": "",
+      "CreatorUID": "",
+      "Title": "",
+      "Description": "",
+      "Offer": "",
+      "Date Created": ""
+      }],
+    "Developers": [{
+      "--UID--": {
+        "UserName": "",
+        "Skills": [],
+        "Description": ""
+      }
+    }],
+    "Users": [{
+      "--UID--": {
+        "username": "",
+        "Description": ""
+      }
+    }]
+  },
+  "UTD": {}
+}
