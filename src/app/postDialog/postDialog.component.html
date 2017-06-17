@@ -1,3 +1,29 @@
-<p>
-  {{pageTitle}}
-</p>
+<!-- may need to wrap all this in a form -->
+<h2>Create a new listing</h2>
+
+<md-input-container>
+  <input mdInput placeholder="Tile" value={{this.post.title}} [(ngModel)]=this.post.title/>
+</md-input-container>
+<br />
+<md-input-container>
+  <input mdInput placeholder="Description" value={{this.post.description}} [(ngModel)]=this.post.description/>
+</md-input-container>
+<br />
+
+<md-select placeholder="Offer" [(ngModel)]=this.post.offer>
+  <md-option value="Private">
+    Private
+  </md-option>
+  <md-option value="Salary">
+    Salary
+  </md-option>
+  <md-option value="Hourly">
+    Hourly
+  </md-option>
+  <md-option value="Equity">
+    Equity
+  </md-option>
+</md-select>
+
+<br />
+<button md-raised-button (click)="submitPost()">Submit</button>
