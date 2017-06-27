@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { MaterialModule } from '@angular/material';
+import { MaterialModule, MdDialog } from '@angular/material';
 
 
 @Component({
