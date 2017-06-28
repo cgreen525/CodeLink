@@ -1,6 +1,8 @@
+// angular injections
 import { Component } from '@angular/core';
 import { MaterialModule, MdDialog } from '@angular/material';
-
+// models
+import { Post } from '../Models/Post';
 
 @Component({
   selector: '',
@@ -13,17 +15,5 @@ export class PostComponent {
 
   submitPost(){
     console.log(this.post);
-  }
-}
-
-class Post {
-  title: string;
-  description: string;
-  offer: string;
-
-  constructor() {
-    this.title = "";
-    this.description = "";
-    this.offer = "";
   }
 }
