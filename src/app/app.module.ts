@@ -14,6 +14,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { PostComponent } from './postDialog/postDialog.component';
+import { ListingService } from './services/Listing.service';
 
 export const firebaseConfig = {
   apiKey: 'AIzaSyB87Q12Gq8b-0WZ_hSI7n6fqGxPYt7aUAg',
@@ -47,7 +48,10 @@ export const routes: Routes = [
     BrowserAnimationsModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [AuthProvider],
+  providers: [
+    AuthProvider,
+    ListingService
+  ],
   bootstrap: [AppComponent],
   entryComponents: [PostComponent]
 })

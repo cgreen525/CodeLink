@@ -3,6 +3,8 @@ import { Component } from '@angular/core';
 import { MaterialModule, MdDialog } from '@angular/material';
 // models
 import { Post } from '../Models/Post';
+// services
+import { ListingService } from '../services/Listing.service';
 
 @Component({
   selector: '',
@@ -13,7 +15,9 @@ export class PostComponent {
   pageTitle: string = 'Hello post dialog!';
   post: Post = new Post();
 
+  constructor(private listingService: ListingService){}
+
   submitPost(){
-    console.log(this.post);
+    this.listingService.CreateListing(this.post);
   }
 }
