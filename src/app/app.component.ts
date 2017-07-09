@@ -5,6 +5,7 @@ import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/databa
 import { AngularFireAuth } from 'angularfire2/auth';
 import { MdDialog } from '@angular/material';
 import { PostComponent } from './postDialog/postDialog.component';
+import { ToasterModule, ToasterService, ToasterConfig } from 'angular2-toaster';
 
 @Component({
   selector: 'app-root',
@@ -14,6 +15,12 @@ import { PostComponent } from './postDialog/postDialog.component';
 
 export class AppComponent {
   public isLoggedIn: boolean;
+  public toastConfig : ToasterConfig = new ToasterConfig({
+    positionClass: 'toast-top-right',
+    timeout: 2000,
+    animation: 'fade'
+  });
+
   constructor(public authService: AuthProvider, public router: Router, public dialog: MdDialog) {
     this.authService.af.authState.subscribe(
       (auth) => {

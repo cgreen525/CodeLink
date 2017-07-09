@@ -7,7 +7,8 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuth, AngularFireAuthModule } from 'angularfire2/auth';
 import { MaterialModule } from '@angular/material';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToasterModule } from 'angular2-toaster';
 
 import { AuthProvider } from './auth.provider';
 import { AppComponent } from './app.component';
@@ -46,7 +47,8 @@ export const routes: Routes = [
     AngularFireAuthModule,
     MaterialModule,
     BrowserAnimationsModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    ToasterModule
   ],
   providers: [
     AuthProvider,

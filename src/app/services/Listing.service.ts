@@ -13,6 +13,15 @@ export class ListingService {
   }
 
   CreateListing(newPost: Post){
-    this.posts.push(newPost)
+    const promise = new Promise((resolve, reject) => {
+      try {
+        this.posts.push(newPost);
+        resolve();
+      } catch(err) {
+        reject(err);
+      }
+    });
+    
+    return promise;
   }
 }
