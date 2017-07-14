@@ -1,4 +1,4 @@
-import { AuthProvider } from './../auth.provider';
+import { AuthProvider } from './../../auth.provider';
 import { Component, OnInit } from '@angular/core';
 import { MdButtonModule } from '@angular/material';
 import { FirebaseObjectObservable} from 'angularfire2/database';

@@ -4,8 +4,8 @@ export class Post {
   offer: string;
 
   constructor() {
-    this.title = "";
-    this.description = "";
-    this.offer = "";
+    this.title = '';
+    this.description = '';
+    this.offer = '';
   }
 }

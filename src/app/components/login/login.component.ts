@@ -1,4 +1,4 @@
-import { AuthProvider } from './../auth.provider';
+import { AuthProvider } from './../../auth.provider';
 import { Component, OnInit, HostBinding } from '@angular/core';
 import { AngularFireModule } from 'angularfire2';
 import { Router } from '@angular/router';

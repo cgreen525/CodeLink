@@ -3,12 +3,11 @@ import { Component } from '@angular/core';
 import { MaterialModule, MdDialog, MdDialogRef } from '@angular/material';
 import { ToasterModule, ToasterService, ToasterConfig } from 'angular2-toaster';
 // models
-import { Post } from '../Models/Post';
+import { Post } from '../../Models/Post';
 // services
-import { ListingService } from '../services/Listing.service';
+import { ListingService } from '../../services/Listing.service';
 
 @Component({
-  selector: '',
   templateUrl: '/postDialog.component.html',
   styleUrls: ['./postDialog.component.css']
 })
@@ -16,9 +15,11 @@ export class PostComponent {
   pageTitle: string = 'Hello post dialog!';
   post: Post = new Post();
 
-  constructor(private listingService: ListingService, public dialogRef: MdDialogRef<PostComponent>, private toasterService: ToasterService){}
+  constructor(private listingService: ListingService,
+              public dialogRef: MdDialogRef<PostComponent>,
+              private toasterService: ToasterService) { }
 
-  submitPost(){
+  submitPost() {
     this.listingService.CreateListing(this.post).then((res) => {
       this.dialogRef.close();
       this.createSuccessToast();
@@ -29,7 +30,7 @@ export class PostComponent {
   }
 
   createErrorToast() {
-    var toast = {
+    const toast = {
       type: 'error',
       title: 'Error!',
       body: 'Unable to create listing'
@@ -39,7 +40,7 @@ export class PostComponent {
   }
 
   createSuccessToast() {
-    var toast = {
+    const toast = {
       type: 'success',
       title: 'Success!',
       body: 'Created your new listing'

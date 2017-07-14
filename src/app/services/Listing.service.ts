@@ -12,16 +12,15 @@ export class ListingService {
     this.posts =  this.fireDatabase.list('/Listings');
   }
 
-  CreateListing(newPost: Post){
+  CreateListing(newPost: Post) {
     const promise = new Promise((resolve, reject) => {
       try {
         this.posts.push(newPost);
         resolve();
-      } catch(err) {
+      } catch (err) {
         reject(err);
       }
     });
-    
     return promise;
   }
 }

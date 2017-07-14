@@ -12,9 +12,9 @@ import { ToasterModule } from 'angular2-toaster';
 
 import { AuthProvider } from './auth.provider';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { PostComponent } from './postDialog/postDialog.component';
+import { LoginComponent } from './components/login/login.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { PostComponent } from './components/postDialog/postDialog.component';
 import { ListingService } from './services/Listing.service';
 
 export const firebaseConfig = {
