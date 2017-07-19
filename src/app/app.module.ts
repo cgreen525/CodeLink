@@ -15,6 +15,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { PostComponent } from './components/postDialog/postDialog.component';
+import { ViewPostsComponent } from './components/ViewPosts/viewPosts.component';
 import { ListingService } from './services/Listing.service';
 
 export const firebaseConfig = {
@@ -28,6 +29,7 @@ export const firebaseConfig = {
 export const routes: Routes = [
   { path: '', pathMatch: 'full', component: AppComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'viewPosts', component: ViewPostsComponent },
   { path: 'dashboard', component: DashboardComponent }
 ];
 
@@ -36,7 +38,8 @@ export const routes: Routes = [
     AppComponent,
     LoginComponent,
     DashboardComponent,
-    PostComponent
+    PostComponent,
+    ViewPostsComponent
   ],
   imports: [
     BrowserModule,
@@ -55,7 +58,7 @@ export const routes: Routes = [
     ListingService
   ],
   bootstrap: [AppComponent],
-  entryComponents: [PostComponent]
+  entryComponents: [PostComponent, ViewPostsComponent]
 })
 
 export class AppModule { }

@@ -2,10 +2,10 @@
 <toaster-container [toasterconfig]="toastConfig"></toaster-container>
 <md-toolbar color="primary">
   <a md-button [routerLink]="dashboard" class="font-20">CodeLink</a>
-  <button md-button class="reg-text font-18">
+  <a md-button [routerLink]="ViewPosts" class="reg-text font-18">
     <md-icon>people</md-icon>
     <span>Browse</span>
-  </button>
+  </a>
   <button md-button class="reg-text font-18" (click)="openDialog()">
     <md-icon>add</md-icon>
     <span>New Listing</span>
