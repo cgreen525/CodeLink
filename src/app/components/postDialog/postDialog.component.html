@@ -1,18 +1,17 @@
 <h2 md-dialog-title>Create a new listing</h2>
-
 <form>
   <div>
-    <md-input-container class="form-fields">
+    <md-input-container class="form-fields full-width">
       <input mdInput placeholder="Tile" value={{this.post.title}} [(ngModel)]=this.post.title name="Title" />
     </md-input-container>
   </div>
   <div>
-    <md-input-container class="form-fields">
+    <md-input-container class="form-fields full-width" dividerColor="primary">
       <textarea mdInput placeholder="Description" value={{this.post.description}} [(ngModel)]=this.post.description name="Description"></textarea>
     </md-input-container>
   </div>
   <div class="form-select">
-    <md-select placeholder="Offer" [(ngModel)]=this.post.offer name="Offer">
+    <md-select placeholder="Offer" class="full-width" dividerColor="primary" [(ngModel)]=this.post.offer name="Offer">
       <md-option value="Private">
         Private
       </md-option>

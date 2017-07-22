@@ -2,7 +2,9 @@ import { AuthProvider } from './../../auth.provider';
 import { Component, OnInit } from '@angular/core';
 import { MdButtonModule } from '@angular/material';
 import { FirebaseObjectObservable} from 'angularfire2/database';
-import * as firebase from 'firebase/app';
+// services
+import { ListingService } from '../../services/Listing.service';
+import { Post } from 'app/Models/Post';
 
 @Component({
   selector: 'app-dashboard',
@@ -11,9 +13,16 @@ import * as firebase from 'firebase/app';
 })
 
 export class DashboardComponent implements OnInit {
+  private listings;
+  constructor(public auth: AuthProvider, private listingService: ListingService) { }
 
-  constructor(public auth: AuthProvider) { }
-
-  ngOnInit() { }
+  ngOnInit() {
+    this.listingService.GetListings().then((res) => {
+      this.listings = res;
+      console.log(res);
+    }).catch((err) => {
+      console.log(err);
+    });
+  }
 
 }

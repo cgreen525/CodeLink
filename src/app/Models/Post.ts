@@ -3,7 +3,7 @@ export class Post {
   description: string;
   offer: string;
 
-  constructor() {
+  constructor(title?: string, description?: string, offer?: string) {
     this.title = '';
     this.description = '';
     this.offer = '';
