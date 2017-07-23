@@ -19,7 +19,6 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
     this.listingService.GetListings().then((res) => {
       this.listings = res;
-      console.log(res);
     }).catch((err) => {
       console.log(err);
     });

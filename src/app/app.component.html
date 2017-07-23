@@ -1,20 +1,22 @@
 <!--The whole content below can be removed with the new code.-->
 <toaster-container [toasterconfig]="toastConfig"></toaster-container>
 <md-toolbar color="primary">
-  <a md-button [routerLink]="dashboard" class="font-20">CodeLink</a>
-  <a md-button [routerLink]="ViewPosts" class="reg-text font-18">
+  <a md-button [routerLink]="dashboard" class="font-20 m-l">
+    CodeLink
+  </a>
+  <button md-button *ngIf="isLoggedIn" [routerLink]="viewPosts" class="reg-text font-18">
     <md-icon>people</md-icon>
     <span>Browse</span>
-  </a>
-  <button md-button class="reg-text font-18" (click)="openDialog()">
+  </button>
+  <button md-button *ngIf="isLoggedIn" class="reg-text font-18" (click)="openDialog()">
     <md-icon>add</md-icon>
     <span>New Listing</span>
   </button>
   <span class="fill-space"></span>
-  <button *ngIf="isLoggedIn" md-button [mdMenuTriggerFor]="menu" class="reg-text font-20">
+  <button *ngIf="isLoggedIn" md-button [mdMenuTriggerFor]="menu" class="reg-text font-20 m-r">
     <span [innerText]="authService.displayName"></span>
   </button>
-  <md-menu #menu="mdMenu">
+  <md-menu *ngIf="isLoggedIn" #menu="mdMenu">
     <button md-menu-item >
       <md-icon>account_circle</md-icon>
       <span>My Account </span>
