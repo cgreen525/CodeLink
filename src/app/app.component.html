@@ -1,10 +1,10 @@
 <!--The whole content below can be removed with the new code.-->
 <toaster-container [toasterconfig]="toastConfig"></toaster-container>
 <md-toolbar color="primary">
-  <a md-button [routerLink]="dashboard" class="font-20 m-l">
+  <a md-button routerLink="/dashboard" class="font-20 m-l">
     CodeLink
   </a>
-  <button md-button *ngIf="isLoggedIn" [routerLink]="viewPosts" class="reg-text font-18">
+  <button md-button *ngIf="isLoggedIn" routerLink="/viewposts" class="reg-text font-18">
     <md-icon>people</md-icon>
     <span>Browse</span>
   </button>
