@@ -29,7 +29,7 @@ export const firebaseConfig = {
 export const routes: Routes = [
   { path: '', pathMatch: 'full', component: AppComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'viewPosts', component: ViewPostsComponent },
+  { path: 'viewposts', component: ViewPostsComponent },
   { path: 'dashboard', component: DashboardComponent }
 ];
 
