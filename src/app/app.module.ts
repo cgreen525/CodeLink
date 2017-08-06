@@ -16,7 +16,7 @@ import { LandingPageComponent } from './components/landingPage/landingPage.compo
 import { LoginComponent } from './components/login/login.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { PostComponent } from './components/postDialog/postDialog.component';
-import { ViewPostsComponent } from './components/ViewPosts/viewPosts.component';
+import { ViewPostsComponent } from './components/viewPosts/viewPosts.component';
 import { ListingService } from './services/Listing.service';
 
 export const firebaseConfig = {
@@ -30,7 +30,7 @@ export const firebaseConfig = {
 export const routes: Routes = [
   { path: '', pathMatch: 'full', component: AppComponent },
   { path: 'welcome', component: LandingPageComponent},
-  { path: 'login', component: LoginComponent },
+  { path: 'register', component: LandingPageComponent },
   { path: 'browse', component: ViewPostsComponent },
   { path: 'dashboard', component: DashboardComponent }
 ];

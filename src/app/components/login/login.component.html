@@ -1,48 +1,20 @@
-<md-grid-list cols="6" rowHeight="250px">
-  <md-grid-tile [colspan]="1" [rowspan]="2"></md-grid-tile>
-  <md-grid-tile [colspan]="4" [rowspan]="2">
-    <md-card>
-      <md-card-header>
-        <md-card-title>
-          <span *ngIf="!newAccount" class="font-20" style="text-align: center;">Sign in</span>
-          <span *ngIf="newAccount" class="font-20">Create an account</span>
-        </md-card-title>
-      </md-card-header>
-      <md-card-content>
-        <md-input-container class="full-width" dividerColor="primary">
-          <input mdInput [(ngModel)]="email" type="email" placeholder="Email" />
-        </md-input-container>
-        <md-input-container class="full-width" dividerColor="primary">
-          <input mdInput [(ngModel)]="password" type="password" placeholder="Password"/>
-        </md-input-container>
-      </md-card-content>
-      <md-card-actions>
-        <md-grid-list cols="2" rowHeight="60px;">
-          <md-grid-tile *ngIf="!newAccount" [colspan]="2" [rowspan]="1">
-            <button md-raised-button (click)="loginWithEmail()" class="full-width" color="primary" >Sign in</button>
-          </md-grid-tile>
-          <md-grid-tile *ngIf="!newAccount" [colspan]="2" [rowspan]="1">
-            <button md-raised-button (click)="loginWithGoogle()" class="full-width" color="warn">Sign in with Google</button>
-          </md-grid-tile>
-          <md-grid-tile *ngIf="!newAccount" [colspan]="2" [rowspan]="1">
-            <button md-button (click)="toggleSignUp()" class="full-width a-button">Create an account</button>
-          </md-grid-tile>
-          <md-grid-tile *ngIf="newAccount" [colspan]="2" [rowspan]="1">
-            <button md-raised-button (click)="createAccount()" class="full-width" color="primary">Sign up</button>
-          </md-grid-tile>
-          <md-grid-tile *ngIf="newAccount" [colspan]="2" [rowspan]="1">
-            <button md-raised-button (click)="loginWithGoogle()" class="full-width" color="warn">Sign up with Google</button>
-          </md-grid-tile>
-          <md-grid-tile *ngIf="newAccount" [colspan]="2" [rowspan]="1">
-            <button md-button (click)="toggleSignUp()" class="full-width a-button">Already have an account</button>
-          </md-grid-tile>
-          <md-grid-tile *ngIf="displayError" [colspan]="2" [rowspan]="1">
-            <p class="full-width error-txt txt-center font-14" [innerText]="errorMsg"></p>
-          </md-grid-tile>
-        </md-grid-list>
-      </md-card-actions>
-    </md-card>
-  </md-grid-tile>
-  <md-grid-tile [colspan]="1" [rowspan]="2"></md-grid-tile>
-</md-grid-list>
-
+<div class="p-x-1">
+  <h2 md-dialog-title>Welcome back!</h2>
+  <div>
+    <md-input-container class="full-width" dividerColor="primary">
+      <input mdInput [(ngModel)]="email" type="email" placeholder="Email" />
+    </md-input-container>
+  </div>
+  <div>
+    <md-input-container class="full-width" dividerColor="primary">
+      <input mdInput [(ngModel)]="password" type="password" placeholder="Password"/>
+    </md-input-container>
+  </div>
+  <div>
+    <button md-raised-button (click)="loginWithEmail()" class="full-width" color="primary" >Sign in</button>
+  </div>
+  <br>
+  <div>
+    <button md-raised-button (click)="loginWithGoogle()" class="full-width" color="warn">Sign in with Google</button>
+  </div>
+</div>

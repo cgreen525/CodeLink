@@ -8,7 +8,7 @@ import { Post } from 'app/Models/Post';
 
 @Component({
   selector: 'app-dashboard',
-  templateUrl: './ViewPosts.component.html',
+  templateUrl: './viewPosts.component.html',
   styleUrls: ['./viewPosts.component.css']
 })
 

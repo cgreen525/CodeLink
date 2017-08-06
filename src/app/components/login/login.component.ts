@@ -1,11 +1,11 @@
-import { AuthProvider } from './../../auth.provider';
 import { Component, OnInit, HostBinding } from '@angular/core';
-import { AngularFireModule } from 'angularfire2';
-import { Router } from '@angular/router';
+import { MaterialModule, MdDialog, MdDialogRef } from '@angular/material';
+import { ToasterModule, ToasterService, ToasterConfig } from 'angular2-toaster';
 import { Observable } from 'rxjs/Observable';
-import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+//services
+import { AuthProvider } from './../../auth.provider';
 
 @Component({
   selector: 'app-login',
@@ -21,23 +21,24 @@ export class LoginComponent {
   private displayError: Boolean;
   private newAccount: Boolean;
 
-  constructor(public authService: AuthProvider, private router: Router) {
+  constructor(private authService: AuthProvider, 
+    private toasterService: ToasterService, 
+    public dialogRef: MdDialogRef<LoginComponent>) 
+  {
     this.user = authService.user;
     this.email = '';
     this.password = '';
     this.errorMsg = '';
-    this.newAccount = false;
-    this.displayError = false;
   }
 
   loginWithGoogle() {
     this.authService.loginWithGoogle().then(
       (response) => {
-        console.log('Success');
+        this.createSuccessToast();
+        this.dialogRef.close();
       },
       (err) => {
-        console.log(err.message);
-        this.showErrorMessage(err.message);
+        this.createErrorToast(err.message);
       }
     );
   }
@@ -45,36 +46,42 @@ export class LoginComponent {
   loginWithEmail() {
     this.authService.loginWithEmail(this.email, this.password).then(
       (response) => {
-        console.log('Success');
+        this.createSuccessToast();
+        this.dialogRef.close();
       },
       (err) => {
-        console.log(err);
-        this.showErrorMessage(err.message);
+        this.createErrorToast(err.message);
       }
     );
   }
 
-  createAccount() {
-    this.authService.registerUser(this.email, this.password).then(
-      (response) => {
-        console.log('Success');
-      },
-      (err) => {
-        console.log(err);
-        this.showErrorMessage(err.message);
-      }
-    );
+  // createAccount() {
+  //   this.authService.registerUser(this.email, this.password).then(
+  //     (response) => {
+  //       console.log('Success');
+  //     },
+  //     (err) => {
+  //       console.log(err);
+  //     }
+  //   );
+  // }
+
+  createErrorToast(message) {
+    const toast = {
+      type: 'error',
+      body: message
+    }
+
+    this.toasterService.pop(toast);
   }
 
-  showErrorMessage(msg: String) {
-    this.errorMsg = msg;
-    this.displayError = true;
-  }
+  createSuccessToast() {
+    const toast = {
+      type: 'success',
+      body: 'Successfully logged in'
+    }
 
-  toggleSignUp() {
-    this.displayError = false;
-    this.errorMsg = '';
-    this.newAccount = !this.newAccount;
+    this.toasterService.pop(toast);
   }
 
 }
