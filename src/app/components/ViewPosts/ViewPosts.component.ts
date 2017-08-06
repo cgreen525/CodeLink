@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { MdButtonModule } from '@angular/material';
 import { FirebaseObjectObservable} from 'angularfire2/database';
 // services
-import { AuthProvider } from './../../auth.provider';
 import { ListingService } from '../../services/Listing.service';
 // models
 import { Post } from 'app/Models/Post';
@@ -15,7 +14,7 @@ import { Post } from 'app/Models/Post';
 
 export class ViewPostsComponent implements OnInit {
   private listings;
-  constructor(public auth: AuthProvider, private listingService: ListingService) { }
+  constructor(private listingService: ListingService) { }
 
   ngOnInit() {
     this.listingService.GetListings().then((res) => {

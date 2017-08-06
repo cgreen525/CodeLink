@@ -14,7 +14,7 @@ import { Post } from 'app/Models/Post';
 
 export class LandingPageComponent implements OnInit {
   private listings;
-  constructor(public auth: AuthProvider, private listingService: ListingService) { }
+  constructor(public authService: AuthProvider, private listingService: ListingService) { }
 
   ngOnInit() {
   //   this.listingService.GetListings().then((res) => {

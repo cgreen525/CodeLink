@@ -1,11 +1,11 @@
 <!--The whole content below can be removed with the new code.-->
 <toaster-container [toasterconfig]="toastConfig"></toaster-container>
-<md-toolbar color="primary">
+<md-toolbar color="primary" *ngIf="!loading">
   <button md-button routerLink="" class="font-20 m-l">
     <span>CodeLink</span>
-    <md-icon>people</md-icon>
   </button>
-  <button md-button *ngIf="isLoggedIn" routerLink="browse" class="reg-text font-18 m-l border-white">
+  <button md-button routerLink="browse" class="reg-text font-18 m-l">
+    <md-icon>people</md-icon>
     <span>Browse</span>
   </button>
   <!-- fill space -->
@@ -32,7 +32,7 @@
     </button>
   </md-menu>
   <button md-button [mdMenuTriggerFor]="menu" *ngIf="isLoggedIn" class="reg-text font-20 m-r-2">
-    <span [innerText]="authService.displayName"></span>
+    <span [innerText]="displayName"></span>
   </button>
 </md-toolbar>
 <div class="app-content">

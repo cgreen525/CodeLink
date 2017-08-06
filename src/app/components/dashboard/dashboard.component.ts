@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MdButtonModule } from '@angular/material';
 import { FirebaseObjectObservable} from 'angularfire2/database';
+import { Router } from '@angular/router';
 // services
 import { AuthProvider } from './../../auth.provider';
 // models
@@ -14,8 +15,16 @@ import { Post } from '../../Models/Post';
 
 export class DashboardComponent implements OnInit {
   
-  constructor(public auth: AuthProvider) { }
+  constructor(public authService: AuthProvider, private router: Router) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    console.log("dashboard reached");
+    if(this.authService.isLoggedIn){
+      this.router.navigate(['browse']);
+    }
+    else {
+      this.router.navigate(['login']);
+    }
+  }
 
 }

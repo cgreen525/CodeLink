@@ -19,16 +19,16 @@
       <md-card-actions>
         <md-grid-list cols="2" rowHeight="60px;">
           <md-grid-tile *ngIf="!newAccount" [colspan]="2" [rowspan]="1">
-            <button md-raised-button (click)="loginWithEmail()" class="full-width" color="primary" >Submit</button>
+            <button md-raised-button (click)="loginWithEmail()" class="full-width" color="primary" >Sign in</button>
           </md-grid-tile>
           <md-grid-tile *ngIf="!newAccount" [colspan]="2" [rowspan]="1">
             <button md-raised-button (click)="loginWithGoogle()" class="full-width" color="warn">Sign in with Google</button>
           </md-grid-tile>
           <md-grid-tile *ngIf="!newAccount" [colspan]="2" [rowspan]="1">
-            <button md-button (click)="toggleSignUp()" class="full-width a-button">Create a new account</button>
+            <button md-button (click)="toggleSignUp()" class="full-width a-button">Create an account</button>
           </md-grid-tile>
           <md-grid-tile *ngIf="newAccount" [colspan]="2" [rowspan]="1">
-            <button md-raised-button (click)="createAccount()" class="full-width" color="primary">Register</button>
+            <button md-raised-button (click)="createAccount()" class="full-width" color="primary">Sign up</button>
           </md-grid-tile>
           <md-grid-tile *ngIf="newAccount" [colspan]="2" [rowspan]="1">
             <button md-raised-button (click)="loginWithGoogle()" class="full-width" color="warn">Sign up with Google</button>
