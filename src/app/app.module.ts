@@ -12,6 +12,7 @@ import { ToasterModule } from 'angular2-toaster';
 
 import { AuthProvider } from './auth.provider';
 import { AppComponent } from './app.component';
+import { LandingPageComponent } from './components/landingPage/landingPage.componoent';
 import { LoginComponent } from './components/login/login.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { PostComponent } from './components/postDialog/postDialog.component';
@@ -28,14 +29,16 @@ export const firebaseConfig = {
 
 export const routes: Routes = [
   { path: '', pathMatch: 'full', component: AppComponent },
+  { path: 'welcome', component: LandingPageComponent},
   { path: 'login', component: LoginComponent },
-  { path: 'viewposts', component: ViewPostsComponent },
+  { path: 'browse', component: ViewPostsComponent },
   { path: 'dashboard', component: DashboardComponent }
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
+    LandingPageComponent,
     LoginComponent,
     DashboardComponent,
     PostComponent,
@@ -57,8 +60,16 @@ export const routes: Routes = [
     AuthProvider,
     ListingService
   ],
-  bootstrap: [AppComponent],
-  entryComponents: [PostComponent, ViewPostsComponent]
+  bootstrap: [
+    AppComponent
+  ],
+  entryComponents: [
+    LandingPageComponent, 
+    DashboardComponent, 
+    PostComponent, 
+    ViewPostsComponent, 
+    LoginComponent
+  ]
 })
 
 export class AppModule { }

@@ -1,22 +1,27 @@
 <!--The whole content below can be removed with the new code.-->
 <toaster-container [toasterconfig]="toastConfig"></toaster-container>
 <md-toolbar color="primary">
-  <a md-button routerLink="/dashboard" class="font-20 m-l">
-    CodeLink
-  </a>
-  <button md-button *ngIf="isLoggedIn" routerLink="/viewposts" class="reg-text font-18">
+  <button md-button routerLink="" class="font-20 m-l">
+    <span>CodeLink</span>
+  </button>
+  <button md-button *ngIf="isLoggedIn" routerLink="browse" class="reg-text font-18">
     <md-icon>people</md-icon>
     <span>Browse</span>
   </button>
-  <button md-button *ngIf="isLoggedIn" class="reg-text font-18" (click)="openDialog()">
+  <!-- fill space -->
+  <span class="fill-space"></span>
+  <!-- fill space -->
+  <button md-button *ngIf="!isLoggedIn" routerLink="login" class="reg-text font-18 m-r">
+    <span>Login</span>
+  </button>
+  <button md-raised-button *ngIf="!isLoggedIn" routerLink="login" class="reg-text font-18 m-r" color="accent">
+    <span>Sign up</span>
+  </button>
+  <button md-button *ngIf="isLoggedIn" (click)="openDialog()" class="reg-text font-18">
     <md-icon>add</md-icon>
     <span>New Listing</span>
   </button>
-  <span class="fill-space"></span>
-  <button *ngIf="isLoggedIn" md-button [mdMenuTriggerFor]="menu" class="reg-text font-20 m-r">
-    <span [innerText]="authService.displayName"></span>
-  </button>
-  <md-menu *ngIf="isLoggedIn" #menu="mdMenu">
+  <md-menu #menu="mdMenu">
     <button md-menu-item >
       <md-icon>account_circle</md-icon>
       <span>My Account </span>
@@ -26,6 +31,9 @@
       <span>Sign out</span>
     </button>
   </md-menu>
+  <button md-button [mdMenuTriggerFor]="menu" *ngIf="isLoggedIn" class="reg-text font-18 m-r">
+    <span [innerText]="authService.displayName"></span>
+  </button>
 </md-toolbar>
 <div class="app-content">
   <router-outlet></router-outlet>

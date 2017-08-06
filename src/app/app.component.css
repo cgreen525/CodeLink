@@ -24,6 +24,14 @@
     margin-left:1rem;
 }
 
+.m-l-3 {
+    margin-left:3rem;
+}
+
 .m-r {
     margin-right:1rem;
+}
+
+.m-r-3 {
+    margin-right:3rem;
 }

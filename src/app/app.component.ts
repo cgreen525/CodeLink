@@ -27,7 +27,7 @@ export class AppComponent {
         if (auth == null) {
           console.log('No user signed in');
           this.isLoggedIn = false;
-          this.router.navigate(['login']);
+          this.router.navigate(['welcome']);
         }
         // tslint:disable-next-line:one-line
         else {
@@ -48,6 +48,7 @@ export class AppComponent {
       }
     );
   }
+
   logout() {
     this.authService.logout();
   }
