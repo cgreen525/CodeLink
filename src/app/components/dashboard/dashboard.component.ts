@@ -18,7 +18,6 @@ export class DashboardComponent implements OnInit {
   constructor(public authService: AuthProvider, private router: Router) { }
 
   ngOnInit() {
-    console.log("dashboard reached");
     if(this.authService.isLoggedIn){
       this.router.navigate(['browse']);
     }
