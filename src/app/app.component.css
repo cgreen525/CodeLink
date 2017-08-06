@@ -1,7 +1,12 @@
 .app-content {
-    margin-left:30px;
-    margin-right:30px;
-    margin-top:10px;
+    padding-left:25px;
+    padding-right:25px;
+    margin-top:25px;
+}
+
+.border-white {
+    border: solid 1px white;
+    border-radius: 3px;
 }
 
 .fill-space {
@@ -24,12 +29,20 @@
     margin-left:1rem;
 }
 
+.m-l-2 {
+    margin-left:2rem;
+}
+
 .m-l-3 {
     margin-left:3rem;
 }
 
 .m-r {
     margin-right:1rem;
+}
+
+.m-r-2 {
+    margin-right:2rem;
 }
 
 .m-r-3 {

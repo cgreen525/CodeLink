@@ -3,21 +3,21 @@
 <md-toolbar color="primary">
   <button md-button routerLink="" class="font-20 m-l">
     <span>CodeLink</span>
-  </button>
-  <button md-button *ngIf="isLoggedIn" routerLink="browse" class="reg-text font-18">
     <md-icon>people</md-icon>
+  </button>
+  <button md-button *ngIf="isLoggedIn" routerLink="browse" class="reg-text font-18 m-l border-white">
     <span>Browse</span>
   </button>
   <!-- fill space -->
   <span class="fill-space"></span>
   <!-- fill space -->
-  <button md-button *ngIf="!isLoggedIn" routerLink="login" class="reg-text font-18 m-r">
+  <button md-button *ngIf="!isLoggedIn" routerLink="login" class="reg-text font-18 m-r-2 border-white">
     <span>Login</span>
   </button>
-  <button md-raised-button *ngIf="!isLoggedIn" routerLink="login" class="reg-text font-18 m-r" color="accent">
+  <button md-raised-button *ngIf="!isLoggedIn" routerLink="login" class="reg-text font-18 m-r-2" color="accent">
     <span>Sign up</span>
   </button>
-  <button md-button *ngIf="isLoggedIn" (click)="openDialog()" class="reg-text font-18">
+  <button md-button *ngIf="isLoggedIn" (click)="openDialog()" class="reg-text font-18 m-r-2 border-white">
     <md-icon>add</md-icon>
     <span>New Listing</span>
   </button>
@@ -31,7 +31,7 @@
       <span>Sign out</span>
     </button>
   </md-menu>
-  <button md-button [mdMenuTriggerFor]="menu" *ngIf="isLoggedIn" class="reg-text font-18 m-r">
+  <button md-button [mdMenuTriggerFor]="menu" *ngIf="isLoggedIn" class="reg-text font-20 m-r-2">
     <span [innerText]="authService.displayName"></span>
   </button>
 </md-toolbar>
