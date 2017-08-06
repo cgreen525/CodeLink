@@ -22,16 +22,28 @@ md-card-actions {
     font-weight: thin;
 }
 
+.font-14 {
+    font-size: 14px;
+}
+
 .font-20 {
     font-size: 20px;
 }
 
-.fb-blue {
-    color: white;
-    background-color: #3b5998;
+.a-button {
+    color:lightskyblue;
+    background-color: white;
 }
 
 .google-yellow {
     color: white;
     background-color: #ffa700;
+}
+
+.error-txt {
+    color: red;
+}
+
+.txt-center {
+    text-align: center;
 }

@@ -7,13 +7,17 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuth, AngularFireAuthModule } from 'angularfire2/auth';
 import { MaterialModule } from '@angular/material';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToasterModule } from 'angular2-toaster';
 
 import { AuthProvider } from './auth.provider';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
-import { SignupComponent } from './signup/signup.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { LandingPageComponent } from './components/landingPage/landingPage.componoent';
+import { LoginComponent } from './components/login/login.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { PostComponent } from './components/postDialog/postDialog.component';
+import { ViewPostsComponent } from './components/ViewPosts/viewPosts.component';
+import { ListingService } from './services/Listing.service';
 
 export const firebaseConfig = {
   apiKey: 'AIzaSyB87Q12Gq8b-0WZ_hSI7n6fqGxPYt7aUAg',
@@ -24,18 +28,21 @@ export const firebaseConfig = {
 };
 
 export const routes: Routes = [
-  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: '', pathMatch: 'full', component: AppComponent },
+  { path: 'welcome', component: LandingPageComponent},
   { path: 'login', component: LoginComponent },
-  { path: 'signup', component: SignupComponent },
+  { path: 'browse', component: ViewPostsComponent },
   { path: 'dashboard', component: DashboardComponent }
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
+    LandingPageComponent,
     LoginComponent,
-    SignupComponent,
-    DashboardComponent
+    DashboardComponent,
+    PostComponent,
+    ViewPostsComponent
   ],
   imports: [
     BrowserModule,
@@ -46,10 +53,23 @@ export const routes: Routes = [
     AngularFireAuthModule,
     MaterialModule,
     BrowserAnimationsModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    ToasterModule
   ],
-  providers: [AuthProvider],
-  bootstrap: [AppComponent]
+  providers: [
+    AuthProvider,
+    ListingService
+  ],
+  bootstrap: [
+    AppComponent
+  ],
+  entryComponents: [
+    LandingPageComponent, 
+    DashboardComponent, 
+    PostComponent, 
+    ViewPostsComponent, 
+    LoginComponent
+  ]
 })
 
 export class AppModule { }
