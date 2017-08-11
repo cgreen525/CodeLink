@@ -4,6 +4,10 @@
     margin-top:25px;
 }
 
+.app-landing {
+    margin:0px;
+}
+
 .border-white {
     border: solid 1px white;
     border-radius: 3px;

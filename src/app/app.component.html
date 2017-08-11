@@ -36,6 +36,6 @@
   </button>
 </md-toolbar>
 <toaster-container [toasterconfig]="toastConfig" style="margin-top:50px;"></toaster-container>
-<div class="app-content">
+<div [ngClass]="{'app-content': isLoggedIn, 'app-landing': !isLoggedIn }">
   <router-outlet></router-outlet>
 </div>
