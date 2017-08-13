@@ -7,9 +7,9 @@ import { Post } from '../Models/Post';
 @Injectable()
 export class ListingService {
   listings: FirebaseListObservable<any[]>
+  schools: FirebaseListObservable<any[]>
 
   constructor(private fireDatabase: AngularFireDatabase) {
-    this.listings =  this.fireDatabase.list('/Listings');
   }
 
   CreateListing(newPost: Post) {
@@ -24,12 +24,16 @@ export class ListingService {
     return response;
   }
 
-  GetListings() {
+  GetListings(school: string) {
     const response = new Promise((resolve, reject) => {
       try
       {
+        this.listings = this.fireDatabase.list('/schools/' + school);
+
         this.listings.subscribe(posts => {
           resolve(posts);
+        }, err => {
+          reject(err);
         });
       }
       catch (err)
@@ -37,6 +41,7 @@ export class ListingService {
         reject(err);
       }
     });
+
     return response;
   }
 }
