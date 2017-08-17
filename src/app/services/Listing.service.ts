@@ -28,7 +28,7 @@ export class ListingService {
     const response = new Promise((resolve, reject) => {
       try
       {
-        this.listings = this.fireDatabase.list('/schools/' + school);
+        this.listings = this.fireDatabase.list('/Schools/' + school);
 
         this.listings.subscribe(posts => {
           resolve(posts);
